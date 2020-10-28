@@ -90,6 +90,8 @@ app.shortcut('modal_shortcut', async ({ ack, shortcut, client }) => {
 app.shortcut('message_shortcut', async ({ ack, shortcut, client }) => {
   await ack();
 
+  // @ts-ignore
+  // TODO :: channel and message not off shortcut?
   const { user, channel, message } = shortcut;
 
   // Grab link to message that shortcut was triggered off of 
@@ -129,6 +131,8 @@ app.view('modal_shortcut_view', async ({ ack, body, view, client }) => {
 app.action('change_modal_message', async ({ ack, body, client, action }) => {
   await ack();
 
+  // @ts-ignore
+  // TODO :: view not off body?
   const { view } = body;
 
   client.views.update({
